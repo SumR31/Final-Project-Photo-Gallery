@@ -1,0 +1,98 @@
+body {
+  background-color: #808080;
+}
+h1 {
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+figure img {
+  border: 2px solid #000000;
+  margin-bottom: 0%;
+  object-fit: cover;
+}
+
+figcaption {
+  margin-top: -5px;
+  width: 200px;
+  border: 2px solid #000000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+@media (min-width: 772px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+  }
+
+  figure {
+    border-radius: 50%; /* Circular shape */
+    overflow: hidden; /* Ensure the image stays within the circular shape */
+    border: 2px solid #000; /* Black border */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+
+  figure img {
+    width: 100%; /* Ensure the image fills the entire figure */
+    height: 200px; /* Make the images same height as figures */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire figure */
+  }
+
+  figcaption {
+    width: 100%;
+  }
+
+  figure:last-child {
+    grid-column: span 2; /* Last figure takes up both columns */
+    width: 50rem;
+  }
+
+  img:last-child {
+    object-position: 0% 50%;
+  }
+}
+
+/* ////////////////////////////////////////////// */
+
+@media (min-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* One column for default */
+  }
+
+  figure {
+    border-radius: 0%;
+  }
+
+  figure:nth-child(3n) {
+    grid-column: span 2; /* Every third figure takes up both columns */
+    border-radius: 0; /* Remove border radius */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    scroll-behavior: auto; /* Remove scroll behavior */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  figcaption {
+    background-color: #333; /* Dark background color */
+    color: #ffd700; /* Yellow-ish font color */
+    border-color: #000; /* Black border color */
+  }
+}
